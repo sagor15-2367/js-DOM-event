@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Summary</title>
+  </head>
+  <body>
+    <h1>Final Dom event handler</h1>
+    <h3 id="handler-status">Default Text</h3>
+    <p id="input-text-display">default Input Text</p>
+    <input id="input-field" type="text" />
+    <button id="btn-update">update</button>
+
+    <br />
+
+    <button onclick="hendleOnClick()">
+      Handle Event by Add onclick Function
+    </button>
+    <button id="over-listener">Handle Event by addEventListener</button>
+    <script>
+      function hendleOnClick() {
+        // console.log('button clicked');
+        const handlerStatus = document.getElementById("handler-status");
+        handlerStatus.innerText =
+          "handled by function attached on click attribute";
+      }
+      //   option : 2
+      document
+        .getElementById("over-listener")
+        .addEventListener("click", function () {
+          const handlerStatus = document.getElementById("handler-status");
+          handlerStatus.innerText = "Text updated by add Event listener button";
+        });
+      // option:2
+      document
+        .getElementById("btn-update")
+        .addEventListener("click", function () {
+          const inputField = document.getElementById("input-field");
+          //   console.log(inputField.value);
+          const inputText = inputField.value;
+
+          const p = document.getElementById("input-text-display");
+          p.innerText = inputText;
+          inputField.value='';
+        });
+    </script>
+  </body>
+</html>
